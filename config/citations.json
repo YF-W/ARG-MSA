@@ -1,0 +1,36 @@
+{
+  "models": {
+    "TFN": {
+      "title": "Tensor Fusion Network for Multimodal Sentiment Analysis",
+      "paper_url": "https://www.aclweb.org/anthology/D17-1115.pdf",
+      "citation": "",
+      "description": "Tensor Fusion Network."
+    }
+  },
+  "datasets": {
+    "SIMS": {
+      "title": "CH-SIMS: A Chinese Multimodal Sentiment Analysis Dataset with Fine-grained Annotations of Modality",
+      "paper_url": "https://www.aclweb.org/anthology/2020.acl-main.343.pdf",
+      "citation": "",
+      "description": "Chinese Multimodal Sentiment Analysis Dataset."
+    },
+    "MOSI": {
+      "title": "Multimodal Sentiment Intensity Analysis in Videos: Facial Gestures and Verbal Messages",
+      "paper_url": "https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=7742221",
+      "citation": "",
+      "description": "The CMU-MOSI Datset."
+    },
+    "MOSEI": {
+      "title": "Multimodal language analysis in the wild: Cmu-mosei dataset and interpretable dynamic fusion graph",
+      "paper_url": "https://aclanthology.org/P18-1208.pdf",
+      "citation": "",
+      "description": "The CMU-MOSEI Datset."
+    },
+    "SIMSv2": {
+      "title": "Make Acoustic and Visual Cues Matter: CH-SIMS v2.0 Dataset and AV-Mixup Consistent Module",
+      "paper_url": "https://dl.acm.org/doi/pdf/10.1145/3536221.3556630",
+      "citation": "",
+      "description": "CH-SIMSv2: Chinese Multimodal Sentiment Analysis Dataset."
+    }
+  }
+}

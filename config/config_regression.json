@@ -1,0 +1,443 @@
+{
+  "datasetCommonParams": {
+    "dataset_root_dir": "",
+    "mosi": {
+      "aligned": {
+        "featurePath": "MOSI/Processed/aligned_50.pkl",
+        "seq_lens": [
+          50,
+          50,
+          50
+        ],
+        "feature_dims": [
+          768,
+          5,
+          20
+        ],
+        "train_samples": 1284,
+        "num_classes": 3,
+        "language": "en",
+        "KeyEval": "Loss"
+      },
+      "unaligned": {
+        "featurePath": "MOSI/Processed/unaligned_50.pkl",
+        "seq_lens": [
+          50,
+          500,
+          375
+        ],
+        "feature_dims": [
+          768,
+          5,
+          20
+        ],
+        "train_samples": 1284,
+        "num_classes": 3,
+        "language": "en",
+        "KeyEval": "Loss"
+      }
+    },
+    "mosei": {
+      "aligned": {
+        "featurePath": "MOSEI/Processed/aligned_50.pkl",
+        "seq_lens": [
+          50,
+          50,
+          50
+        ],
+        "feature_dims": [
+          768,
+          74,
+          35
+        ],
+        "train_samples": 16326,
+        "num_classes": 3,
+        "language": "en",
+        "KeyEval": "Loss"
+      },
+      "unaligned": {
+        "featurePath": "MOSEI/Processed/unaligned_50.pkl",
+        "seq_lens": [
+          50,
+          500,
+          375
+        ],
+        "feature_dims": [
+          768,
+          74,
+          35
+        ],
+        "train_samples": 16326,
+        "num_classes": 3,
+        "language": "en",
+        "KeyEval": "Loss"
+      }
+    },
+    "sims": {
+      "unaligned": {
+        "featurePath": "SIMS/Processed/unaligned_39.pkl",
+        "seq_lens": [
+          39,
+          400,
+          55
+        ],
+        "feature_dims": [
+          768,
+          33,
+          709
+        ],
+        "train_samples": 1368,
+        "num_classes": 3,
+        "language": "cn",
+        "KeyEval": "Loss"
+      }
+    },
+    "simsv2": {
+      "unaligned": {
+        "featurePath": "SIMSV2/Processed/unaligned.pkl",
+        "seq_lens": [
+          50,
+          925,
+          232
+        ],
+        "feature_dims": [
+          768,
+          25,
+          177
+        ],
+        "train_samples": 2722,
+        "num_classes": 3,
+        "language": "cn",
+        "KeyEval": "Loss"
+      }
+    }
+  },
+  "arg_msa": {
+    "commonParams": {
+      "need_data_aligned": false,
+      "need_model_aligned": false,
+      "need_normalized": false,
+      "use_bert": false,
+      "use_finetune": false,
+      "early_stop": 8,
+      "seed": 1111,
+      "num_workers": 0,
+      "hidden_dim": 128,
+      "num_heads": 4,
+      "num_iters": 4,
+      "lambda_role": 0.2,
+      "lambda_q": 0.2,
+      "q_floor": 0.05,
+      "local_residual_scale": 0.1,
+      "node_residual_keep": 0.1,
+      "global_residual_keep": 0.1,
+      "node_init_residual_scale": 0.1,
+      "global_init_residual_scale": 0.1,
+      "relation_evidence_residual_scale": 0.1,
+      "relation_temperature": 1.0,
+      "q_temperature": 1.0,
+      "q_state_floor": 0.0,
+      "node_input_residual_scale": 0.1,
+      "global_pooled_residual_scale": 0.1,
+      "final_residual_scale": 0.0,
+      "final_output_residual_scale": 0.0,
+      "final_q_normalize": false,
+      "segment_window": 4,
+      "segment_pooling": "mean",
+      "use_soft_role": true,
+      "dropout": 0.1,
+      "lr": 0.001,
+      "loss_name": "mse",
+      "corr_loss_weight": 0.0,
+      "mae_loss_weight": 0.0,
+      "grad_clip": 1.0,
+      "return_debug_tensors": false,
+      "enable_iter_analysis": false,
+      "iter_analysis_split": "valid",
+      "iter_analysis_every_epoch": 1,
+      "enable_internal_diagnostics": false,
+      "internal_diag_every_epoch": 1,
+      "enable_layerwise_diagnostics": false,
+      "skip_epoch_test": false,
+      "enable_val_scale_calibration": false,
+      "calibration_scale_min": 0.5,
+      "calibration_scale_max": 2.0,
+      "calibration_blend": 1.0,
+      "calibration_apply_to_test": true,
+      "calibration_clip_outputs": false,
+      "calibration_affects_eval_loss": true,
+      "calibration_min_pred_std": 0.0001,
+      "calibration_allow_negative_scale": false,
+      "calibration_objective": "mse",
+      "calibration_grid_steps": 11,
+      "calibration_bias_steps": 21,
+      "calibration_scale_span": 0.25,
+      "calibration_bias_span": 0.25
+    },
+    "datasetParams": {
+      "mosi": {
+        "batch_size": 16,
+        "learning_rate": 0.0005,
+        "lr": 0.0005,
+        "weight_decay": 1e-05,
+        "num_iters": 3,
+        "dropout": 0.2,
+        "relation_temperature": 0.8,
+        "q_temperature": 1.0,
+        "final_residual_scale": 0.05,
+        "final_output_residual_scale": 0.05,
+        "final_q_normalize": false,
+        "segment_pooling": "attention",
+        "calibration_objective": "mae_grid",
+        "calibration_grid_steps": 13,
+        "calibration_bias_steps": 25,
+        "calibration_scale_span": 0.3,
+        "calibration_bias_span": 0.35,
+        "enable_val_scale_calibration": true,
+        "calibration_scale_min": 0.7,
+        "calibration_scale_max": 2.5,
+        "calibration_blend": 1.0,
+        "calibration_clip_outputs": false,
+        "q_logit_norm": true,
+        "q_logit_scale": 1.0,
+        "q_logit_centering": false,
+        "q_floor_mode": "absolute",
+        "q_floor": 0.05,
+        "calibration_apply_to_test": true,
+        "local_residual_scale": 0.1,
+        "node_residual_keep": 0.1,
+        "global_residual_keep": 0.1,
+        "negative_evidence_residual_v6": false,
+        "negative_v6_scale": 0.0,
+        "negative_evidence_residual_v7": false,
+        "negative_v7_scale": 0.0,
+        "negative_residual_amplitude_adapter": false,
+        "negative_residual_adapter_scale": 0.0,
+        "negative_residual_path_gain": false,
+        "negative_path_gain_scale": 0.0,
+        "strong_negative_separation_loss_weight": 0.0,
+        "negative_intensity_margin_loss_weight": 0.0,
+        "rank_corr_loss_weight": 0.0,
+        "mae_loss_weight": 0.0,
+        "pred_scale_loss_weight": 0.0,
+        "final_dispersion_preserve": true,
+        "final_dispersion_target_std": 0.85,
+        "final_dispersion_max_expand": 0.03,
+        "final_dispersion_boundary_safe": true,
+        "final_dispersion_boundary_margin": 0.3,
+        "final_dispersion_boundary_scale": 0.4
+      },
+      "mosei": {
+        "batch_size": 64,
+        "learning_rate": 0.0005,
+        "lr": 0.0005,
+        "weight_decay": 1e-05,
+        "num_iters": 4,
+        "dropout": 0.1,
+        "relation_temperature": 1.0,
+        "q_temperature": 1.0,
+        "final_q_normalize": true,
+        "segment_pooling": "mean",
+        "corr_loss_weight": 0.0,
+        "need_data_aligned": true,
+        "enable_val_scale_calibration": true,
+        "calibration_scale_min": 0.7,
+        "calibration_scale_max": 2.0,
+        "calibration_blend": 0.8,
+        "calibration_clip_outputs": false,
+        "negative_evidence_residual_v6": false,
+        "negative_v6_scale": 0.0,
+        "negative_evidence_residual_v7": false,
+        "negative_v7_scale": 0.0,
+        "negative_residual_amplitude_adapter": false,
+        "negative_residual_adapter_scale": 0.0,
+        "negative_residual_path_gain": false,
+        "negative_path_gain_scale": 0.0,
+        "strong_negative_separation_loss_weight": 0.0,
+        "negative_intensity_margin_loss_weight": 0.0,
+        "rank_corr_loss_weight": 0.0,
+        "mae_loss_weight": 0.0,
+        "pred_scale_loss_weight": 0.0,
+        "final_dispersion_preserve": true,
+        "final_dispersion_target_std": 0.7,
+        "final_dispersion_max_expand": 0.02,
+        "final_dispersion_boundary_safe": true,
+        "final_dispersion_boundary_margin": 0.28,
+        "final_dispersion_boundary_scale": 0.28
+      },
+      "sims": {
+        "batch_size": 16,
+        "learning_rate": 0.0005,
+        "lr": 0.0005,
+        "weight_decay": 1e-05,
+        "dropout": 0.2,
+        "q_floor": 0.05,
+        "q_state_floor": 0.03,
+        "local_residual_scale": 0.1,
+        "node_residual_keep": 0.1,
+        "global_residual_keep": 0.1,
+        "node_init_residual_scale": 0.1,
+        "global_init_residual_scale": 0.1,
+        "relation_evidence_residual_scale": 0.1,
+        "node_input_residual_scale": 0.1,
+        "global_pooled_residual_scale": 0.1,
+        "final_residual_scale": 0.05,
+        "final_output_residual_scale": 0.05,
+        "final_q_normalize": false,
+        "segment_pooling": "mean",
+        "corr_loss_weight": 0.0,
+        "rank_corr_loss_weight": 0.0,
+        "rank_pair_sample_size": 64,
+        "rank_margin": 0.03,
+        "calibration_objective": "mae_grid",
+        "calibration_grid_steps": 13,
+        "calibration_bias_steps": 25,
+        "calibration_scale_span": 0.3,
+        "calibration_bias_span": 0.35,
+        "enable_val_scale_calibration": true,
+        "calibration_scale_min": 0.7,
+        "calibration_scale_max": 2.0,
+        "calibration_blend": 1.0,
+        "calibration_clip_outputs": true,
+        "positive_evidence_consistency_residual_v4": true,
+        "positive_confidence_source": "intensity_aware_node_hlocal",
+        "positive_intensity_gate": true,
+        "positive_intensity_threshold": 0.6,
+        "positive_weak_suppress_threshold": 0.4,
+        "positive_evidence_consistency_scale": 0.015,
+        "positive_evidence_threshold": 0.7,
+        "positive_residual_max_abs": 0.4,
+        "positive_consistency_warmup_epochs": 3,
+        "retention_residual_safe_guard": true,
+        "retention_guard_metric": "mae_acc2_f1_corr",
+        "retention_acc2_drop_limit": 0.001,
+        "retention_f1_drop_limit": 0.001,
+        "retention_corr_drop_limit": 0.001,
+        "negative_evidence_residual_v6": false,
+        "negative_v6_scale": 0.0,
+        "negative_evidence_residual_v7": false,
+        "negative_v7_scale": 0.0,
+        "negative_residual_amplitude_adapter": false,
+        "negative_residual_adapter_scale": 0.0,
+        "negative_residual_path_gain": false,
+        "negative_path_gain_scale": 0.0,
+        "strong_negative_separation_loss_weight": 0.0,
+        "negative_intensity_margin_loss_weight": 0.0,
+        "mae_loss_weight": 0.0,
+        "pred_scale_loss_weight": 0.0,
+        "sims_bucket_aux_enable": true,
+        "sims_bucket_aux_weight": 0.05,
+        "sims_bucket_aux_tau": 0.1
+      },
+      "simsv2": {
+        "batch_size": 16,
+        "learning_rate": 0.0005,
+        "lr": 0.0005,
+        "weight_decay": 1e-05,
+        "dropout": 0.1,
+        "num_iters": 4,
+        "final_residual_scale": 0.05,
+        "final_output_residual_scale": 0.05,
+        "final_q_normalize": false,
+        "segment_pooling": "mean",
+        "calibration_objective": "mae_grid",
+        "calibration_grid_steps": 13,
+        "calibration_bias_steps": 25,
+        "calibration_scale_span": 0.25,
+        "calibration_bias_span": 0.3,
+        "enable_val_scale_calibration": true,
+        "negative_evidence_residual_v6": false,
+        "negative_v6_scale": 0.0,
+        "negative_evidence_residual_v7": false,
+        "negative_v7_scale": 0.0,
+        "negative_residual_amplitude_adapter": false,
+        "negative_residual_adapter_scale": 0.0,
+        "negative_residual_path_gain": false,
+        "negative_path_gain_scale": 0.0,
+        "strong_negative_separation_loss_weight": 0.0,
+        "negative_intensity_margin_loss_weight": 0.0,
+        "rank_corr_loss_weight": 0.0,
+        "mae_loss_weight": 0.0,
+        "pred_scale_loss_weight": 0.0
+      }
+    }
+  },
+  "tfn": {
+    "commonParams": {
+      "need_data_aligned": false,
+      "need_model_aligned": false,
+      "need_normalized": true,
+      "early_stop": 8
+    },
+    "datasetParams": {
+      "mosi": {
+        "hidden_dims": [
+          128,
+          32,
+          128
+        ],
+        "text_out": 32,
+        "post_fusion_dim": 64,
+        "dropouts": [
+          0.3,
+          0.3,
+          0.3,
+          0.5
+        ],
+        "batch_size": 32,
+        "learning_rate": 0.001
+      },
+      "mosei": {
+        "hidden_dims": [
+          128,
+          16,
+          128
+        ],
+        "text_out": 128,
+        "post_fusion_dim": 16,
+        "dropouts": [
+          0.4,
+          0.4,
+          0.4,
+          0.4
+        ],
+        "batch_size": 128,
+        "learning_rate": 0.005
+      },
+      "sims": {
+        "hidden_dims": [
+          128,
+          32,
+          128
+        ],
+        "text_out": 256,
+        "post_fusion_dim": 32,
+        "dropouts": [
+          0.4,
+          0.4,
+          0.4,
+          0.4
+        ],
+        "batch_size": 32,
+        "learning_rate": 0.0005
+      },
+      "simsv2": {
+        "hidden_dims": [
+          128,
+          32,
+          128
+        ],
+        "text_out": 128,
+        "post_fusion_dim": 32,
+        "dropouts": [
+          0.3,
+          0.3,
+          0.3,
+          0.5
+        ],
+        "batch_size": 128,
+        "learning_rate": 0.002
+      }
+    }
+  }
+}
